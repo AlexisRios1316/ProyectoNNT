@@ -2,6 +2,7 @@
 import React from 'react'
 import {   Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import '../Styles/Compras.css'
  const Barra = () => {
   return (
     <>
@@ -12,7 +13,11 @@ import { Link } from 'react-router-dom'
       <Nav className="mr-auto">
         <Link to={"/"} className="nav-link" >Home</Link>
         <Link href="#features" className="nav-link">Features</Link>
-        <Link href="#pricing" className="nav-link" >Pricing</Link>
+        
+        <div className='cart'>
+        <box-icon  name="cart" ></box-icon>
+       <span className="item_total">0</span>
+        </div>
       </Nav>
       
     </Navbar>

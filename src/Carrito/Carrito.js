@@ -1,13 +1,27 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Card from '../Assets/tenis3.jpg'
 import '../Styles/productos.css'
 import 'boxicons'
+import { DataContext } from '../context/Dataprovider'
 
 
 
  export const Carrito = () => {
 
+ const value = useContext(DataContext)
+ { /*const [menu,setMenu] = value.menu   
 
+const show1 = menu ? "carritos show : "carritos";
+
+const show1 = menu ? "carrito show : "carrito";
+
+
+// Funcion para volver falso el menu y va en carrito_close
+const tooglefalse = () => {
+  setMenu(false)
+}
+*/
+}
 
 
 
