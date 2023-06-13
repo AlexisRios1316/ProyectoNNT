@@ -30,7 +30,7 @@ const show2 = menu ? "carrito show" : "carrito"
 
         <box-icon name='x' onClick={value.closecard}> </box-icon>    
         </div>
-       <h2> Su Carrito  </h2> 
+       <h2> Carrito </h2> 
        <div className='carrito_center'>
          <div className='carrito_item'>
 <img src={Card}alt =""/>

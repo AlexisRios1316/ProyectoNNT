@@ -13,6 +13,8 @@ import { DataContext } from '../context/Dataprovider'
 
       const  value = useContext(DataContext);
       const  addCarrito = value.addCarrito;
+
+
   return (
     <div className='producto'>
     < a href='#'     >  
@@ -28,7 +30,12 @@ import { DataContext } from '../context/Dataprovider'
 
 </div>
 <div className='buttom'>
-<button className='btn' onClick={() => addCarrito(id)} >  
+<button className='btn' onClick={() => addCarrito({ id ,
+    title ,
+    price,
+    image,
+    category,
+    cantida})} >  
 Añadir al Carrito
 </button>
 <div>

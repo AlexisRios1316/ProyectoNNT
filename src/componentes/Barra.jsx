@@ -9,6 +9,7 @@ import { DataContext } from '../context/Dataprovider'
 
   const value = useContext(DataContext)
   const [menu,setMenu] = value.menu
+  const [carrito] = value.carrito 
 
   return (
     <>
@@ -22,7 +23,7 @@ import { DataContext } from '../context/Dataprovider'
         
         <div className='cart'>
         <box-icon  name="cart" onClick={() => setMenu(true)} ></box-icon>
-       <span className="item_total">0</span>
+       <span className="item_total">{carrito.length}</span>
         </div>
       </Nav>
       

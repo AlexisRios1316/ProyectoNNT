@@ -29,16 +29,17 @@ export const DataProvider = (props) => {
 
 
 // Constante para guardar datos 
-const addCarrito = (id) =>{
+const addCarrito = (producto) =>{
+    console.log(carrito)
 
-	const check = carrito.every(item => {
-		return item.id !== id;
+	const check = carrito.every(item => {  
+		return item.id != producto.id;
+
 	})
+	console.log(check)
 	if(check){
-		const data = productos.filter(productos =>{
-			return productos.id === id
-		})
-		setCarrito([...carrito,...data])
+		
+		setCarrito([...carrito,producto])
 	
 	} else {
 		alert(" El producto se ha añadido al carrito ")
