@@ -53,7 +53,9 @@ const addCarrito = (id) =>{
         productos : [productos],
 		menu: [menu, setMenu],
        addCarrito: addCarrito,
-	   carrito: [carrito,setCarrito]
+	   carrito: [carrito,setCarrito],
+	   showcard:()=> setMenu(true),
+	   closecard: () => setMenu(false)
 		   //importamos MENU
 
     }
@@ -62,8 +64,11 @@ const addCarrito = (id) =>{
 /*  ERROES PARA RESOLVER */
 	
 	return (
-		<DataContext.Provider >
+		<DataContext.Provider
+         value={value}	
+		>
 			{props.children}
+
 		</DataContext.Provider>
 	)
 };

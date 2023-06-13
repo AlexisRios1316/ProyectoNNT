@@ -1,9 +1,15 @@
 
-import React from 'react'
+import React, {useContext} from 'react'
 import {   Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../Styles/Compras.css'
+import { DataContext } from '../context/Dataprovider' 
+
  const Barra = () => {
+
+  const value = useContext(DataContext)
+  const [menu,setMenu] = value.menu
+
   return (
     <>
     <header>
@@ -15,7 +21,7 @@ import '../Styles/Compras.css'
         <Link href="#features" className="nav-link">Features</Link>
         
         <div className='cart'>
-        <box-icon  name="cart" ></box-icon>
+        <box-icon  name="cart" onClick={() => setMenu(true)} ></box-icon>
        <span className="item_total">0</span>
         </div>
       </Nav>

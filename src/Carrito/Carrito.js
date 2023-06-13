@@ -9,29 +9,26 @@ import { DataContext } from '../context/Dataprovider'
  export const Carrito = () => {
 
  const value = useContext(DataContext)
- { /*const [menu,setMenu] = value.menu   
+  const [menu,setMenu] = value.menu   
 
-const show1 = menu ? "carritos show : "carritos";
+const show1 = menu ? "carritos show" : "carritos"
 
-const show1 = menu ? "carrito show : "carrito";
+const show2 = menu ? "carrito show" : "carrito"
 
 
 // Funcion para volver falso el menu y va en carrito_close
-const tooglefalse = () => {
-  setMenu(false)
-}
-*/
-}
+
+
 
 
 
 
   return (
-<div className="carritos">  {/* Creando una iteracion para la parte del carrito y prudctos   */}
-    <div className="carrito">
+<div className={show1}>  {/* Creando una iteracion para la parte del carrito y prudctos   */}
+    <div className={show2}>
         <div className='carrito_close'>
 
-        <box-icon name='x'> </box-icon>    
+        <box-icon name='x' onClick={value.closecard}> </box-icon>    
         </div>
        <h2> Su Carrito  </h2> 
        <div className='carrito_center'>
