@@ -11,12 +11,39 @@ import { DataContext } from '../context/Dataprovider'
  const value = useContext(DataContext)
   const [menu,setMenu] = value.menu   
 const [carrito,setCarrito] =value.carrito
+const [total] = value.total
 
 
 
 const show1 = menu ? "carritos show" : "carritos"
 
 const show2 = menu ? "carrito show" : "carrito"
+
+
+//RESTA Y SUMA DEL PRODCUTO
+const resta = id => {
+carrito.forEach(item =>{
+  if(item.id === id){
+ item.cantidad === 1 ? item.cantidad = 1 : item.cantidad -=1;
+
+  }
+  setCarrito([...carrito])
+})
+}
+
+//SUMA
+const suma = id => {
+  carrito.forEach(item =>{
+    if(item.id === id){
+   item.cantidad +=1;
+  
+    }
+    setCarrito([...carrito])
+  })
+  }
+
+
+
 
  const removeProducto = id => {
   if(window.confirm("Quieres suspender el prodcuto?")){
@@ -47,21 +74,31 @@ useEffect(()=>{
        <h2> Carrito </h2> 
        <div className='carrito_center'>
       {
+
+      /*PARTE PARA HACER LA SUMA DE LOS PRODCUTOS EN DINERO */
+        carrito.length === 0 ? <h2 style={{
+          textAlign: "center", fontSize: "3rem"
+
+        }}> Carrito Vacio  </h2> :  <>
+
+{
           
          carrito.map((producto) =>
            
 
-            <div className='carrito_item'>
+            <div className='carrito_item' key={producto.id}>
    <img src={producto.image}alt =""/>
    <div>
        <h3>{producto.title}</h3>
        <p className='price'> ${producto.price}</p>
    </div>
    <div>
-       <box-icon name='up-arrow' type='solid'> </box-icon>
+
+       <box-icon name='up-arrow' type='solid' onClick = {() => suma (producto.id)}> </box-icon>
    <p className='cantidad'>{producto.cantidad}</p>
-   <box-icon name="down-arrow" type='solid' > </box-icon>
+   <box-icon name="down-arrow" type='solid' onClick = {() => resta (producto.id)} > </box-icon>
         </div>
+        
         <div className='remove_item'>
    <box-icon name='trash' type='solid' onClick={() => removeProducto(producto.id)}>  </box-icon>
    
@@ -69,13 +106,16 @@ useEffect(()=>{
             </div>
          )
         }
+        </>
+ }
+
          </div>
          
           
 
 
        <div className='carrito-footer'>  
-       <h3> Total $2500 </h3>
+       <h3> Total $ {total} </h3>
        <button className='btn'> Payment</button>
        </div>
     </div>

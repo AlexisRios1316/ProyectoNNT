@@ -30,9 +30,13 @@ import { UserContext } from '../context/UserContext'
        <span className="item_total">{carrito.length}</span>
         </div>
 
+
+<div className='Online'>
         {
-         !user ? null : 'Contectado ' + user.users
+         !user ? null : 'Contectado :   ' + user.users
         }
+
+</div>
       </Nav>
       
     </Navbar>
