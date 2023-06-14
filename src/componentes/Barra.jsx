@@ -4,8 +4,12 @@ import {   Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../Styles/Compras.css'
 import { DataContext } from '../context/Dataprovider' 
+import { UserContext } from '../context/UserContext'
 
  const Barra = () => {
+
+  const {user} = useContext(UserContext)
+
 
   const value = useContext(DataContext)
   const [menu,setMenu] = value.menu
@@ -25,6 +29,10 @@ import { DataContext } from '../context/Dataprovider'
         <box-icon  name="cart" onClick={() => setMenu(true)} ></box-icon>
        <span className="item_total">{carrito.length}</span>
         </div>
+
+        {
+         !user ? null : 'Contectado ' + user.users
+        }
       </Nav>
       
     </Navbar>

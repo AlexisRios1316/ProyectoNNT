@@ -8,12 +8,12 @@ import {createContext, useState} from "react"
 // Generar un Provider (Provedor de informacion )
 
  export  const UserProvider = ({children}) => {
-    const [user, setUser] = useState (null)
+    const [user, setUser] = useState (JSON.parse(localStorage.getItem("user")))
     const saveUser = (user) => {
         //Mandamos la infomracion 
         localStorage.setItem('user', JSON.stringify(user))
         //Cambio de estado para el local storage
-        return setUser (JSON.parse(localStorage.getItem('user')))
+       
 
     }
     //Logica para cambiar el estado del usuario a null o cerrar sesion  

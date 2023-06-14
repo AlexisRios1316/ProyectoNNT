@@ -3,12 +3,13 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import {Home} from './pages/Home'
 import {Board} from './pages/Board'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {UserProvider} from  './context/UserContext'
 
 
 function App() {
   return (
   
-   
+   <UserProvider>
     <BrowserRouter>
     
       <Routes>
@@ -17,7 +18,8 @@ function App() {
 
       </Routes>
     </BrowserRouter>
-
+    
+    </UserProvider>
    
   );
 }

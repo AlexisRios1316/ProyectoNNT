@@ -1,16 +1,22 @@
 // Login 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom"; //Sirve para redireccionar un login 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/Barra.css'
 import {Form, Button, Alert} from 'react-bootstrap'
+import { UserContext } from "../context/UserContext";
+
 
 
 
 //Generar componente de React 
 
 export const Home  = () => {
+
+const {saveUser} = useContext(UserContext)
+
+
 
 
    //Cambio de estado  para manejar los inputs  (DUDA) ///
@@ -29,7 +35,8 @@ const onChange  = (evt) => setInput({
       evt.preventDefault()
       try{
          const response  = await axios.post('http://127.0.0.1:5500/user/login', input)
-         if(!response.data.IsAuth === false) return alert(response.data.message)
+         if(response.data.message == "Usuario incorrecto") return alert(response.data.message)
+         saveUser(input)
          return navigate('/Board')
          console.log(input)
          console.log(response.data.IsAuth)
