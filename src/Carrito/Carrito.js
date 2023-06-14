@@ -18,9 +18,18 @@ const show1 = menu ? "carritos show" : "carritos"
 
 const show2 = menu ? "carrito show" : "carrito"
 
-
-// Funcion para volver falso el menu y va en carrito_close
-
+ const removeProducto = id => {
+  if(window.confirm("Quieres suspender el prodcuto?")){
+    carrito.forEach((item,index) => {
+      if(item.id === id){
+        item.cantidad = 1;
+        carrito.splice(index, 1)
+      }
+    })
+    setCarrito([...carrito])
+  }
+   
+}
 
 
 
@@ -54,7 +63,7 @@ useEffect(()=>{
    <box-icon name="down-arrow" type='solid' > </box-icon>
         </div>
         <div className='remove_item'>
-   <box-icon name='trash' type='solid'>  </box-icon>
+   <box-icon name='trash' type='solid' onClick={() => removeProducto(producto.id)}>  </box-icon>
    
         </div>
             </div>
