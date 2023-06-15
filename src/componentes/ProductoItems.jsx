@@ -9,7 +9,7 @@ import { DataContext } from '../context/Dataprovider'
     price,
     image,
     category,
-    cantida,}) => {
+    cantidad,}) => {
 
       const  value = useContext(DataContext);
       const  addCarrito = value.addCarrito;
@@ -35,7 +35,7 @@ import { DataContext } from '../context/Dataprovider'
     price,
     image,
     category,
-    cantida})} >  
+    cantidad})} >  
 Añadir al Carrito
 </button>
 <div>

@@ -48,9 +48,12 @@ const addCarrito = (producto) =>{
 
 }
 
+
 useEffect(() => {
 	const getTotal = () => {
+
    const res  = carrito.reduce((prev, item) => {
+	console.log(prev,item.price, item.cantidad)
 	return prev + (item.price * item.cantidad)
    }, 0 )
    setTotal(res)

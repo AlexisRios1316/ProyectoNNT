@@ -24,8 +24,9 @@ const show2 = menu ? "carrito show" : "carrito"
 const resta = id => {
 carrito.forEach(item =>{
   if(item.id === id){
+    console.log(item.cantidad)
  item.cantidad === 1 ? item.cantidad = 1 : item.cantidad -=1;
-
+console.log(item.cantidad)
   }
   setCarrito([...carrito])
 })
@@ -35,8 +36,11 @@ carrito.forEach(item =>{
 const suma = id => {
   carrito.forEach(item =>{
     if(item.id === id){
+      console.log(item.cantidad)
+
    item.cantidad +=1;
-  
+   
+  console.log(item.cantidad)
     }
     setCarrito([...carrito])
   })
