@@ -23,7 +23,7 @@ import { UserContext } from '../context/UserContext'
       <Navbar.Brand href="#home">Navbar</Navbar.Brand>
       <Nav className="mr-auto">
         <Link to={"/"} className="nav-link" >Home</Link>
-        <Link href="#features" className="nav-link">Features</Link>
+        <Link to={'/UsuarioNuevo'} className="nav-link">Registrar</Link>
         
         <div className='cart'>
         <box-icon  name="cart" onClick={() => setMenu(true)} ></box-icon>

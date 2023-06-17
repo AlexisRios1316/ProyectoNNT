@@ -4,7 +4,7 @@ import {Home} from './pages/Home'
 import {Board} from './pages/Board'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {UserProvider} from  './context/UserContext'
-
+import {UsuarioNuevo} from './pages/UsuarioNuevo'
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Board" element={<Board />} />
+        <Route path="/UsuarioNuevo" element={<UsuarioNuevo />} />
         
       </Routes>
     </BrowserRouter>
