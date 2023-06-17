@@ -3,6 +3,7 @@ import Card from '../Assets/tenis3.jpg'
 import '../Styles/productos.css'
 import 'boxicons'
 import { DataContext } from '../context/Dataprovider'
+import {PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 
 
@@ -120,7 +121,40 @@ useEffect(()=>{
 
        <div className='carrito-footer'>  
        <h3> Total $ {total} </h3>
-       <button className='btn'> Payment</button>
+
+
+
+       
+       <button className='btn'> 
+       <PayPalScriptProvider
+    options={{
+        clientId: "AWKyeuK3Xykv27zJmAxtLKuVgrFxgXybsq6_WQXmXwzFB-iaZn0bPgYBmxMiAjkiF9r_97duEAGH8FYd",
+       
+    }}
+>
+    <PayPalButtons
+             createOrder={(data, actions) => {
+                return actions.order.create({
+                    purchase_units: [
+                        {
+                            amount: {
+                                value: "1.99",
+                            },
+                        },
+                    ],
+                });
+            }}
+            onApprove={(data, actions) => {
+                return actions.order.capture().then((details) => {
+                    const name = details.payer.name.given_name;
+                    alert(`Transaction completed by ${name}`);
+                });
+            }}
+    />
+</PayPalScriptProvider>
+
+</button>
+       
        </div>
     </div>
      </div>
