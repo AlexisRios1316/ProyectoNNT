@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import axios from "axios"
-import { useNavigate } from "react-router-dom"; //Sirve para redireccionar un login 
+import { Link, useNavigate } from "react-router-dom"; //Sirve para redireccionar un login 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/Barra.css'
 import {Form, Button, Alert} from 'react-bootstrap'
@@ -72,8 +72,13 @@ const onChange  = (evt) => setInput({
   <Button variant="primary" type="submit">
     Submit
   </Button>
+
+ 
   
 </Form>
+<Link to={"/"} className="nav-link1" >  Iniciar Sesion </Link>
+   
+  
 </div>
 </div>
 

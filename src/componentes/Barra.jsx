@@ -20,9 +20,9 @@ import { UserContext } from '../context/UserContext'
     <header>
       
     <Navbar bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+      <Navbar.Brand href="#home">Inicio</Navbar.Brand>
       <Nav className="mr-auto">
-        <Link to={"/"} className="nav-link" >Home</Link>
+        <Link to={"/"} className="nav-link" >Login</Link>
         <Link to={'/UsuarioNuevo'} className="nav-link">Registrar</Link>
         
         <div className='cart'>
